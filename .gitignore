@@ -1,0 +1,4 @@
+public/bower_components/
+node_modules/
+/archives/2013/.*
+/archives/2014/.*
