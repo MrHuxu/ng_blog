@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var allArticles = require('./routes/all_articles');
 
 var app = express();
+var server = require('http').Server(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,9 +57,13 @@ app.use(function(err, req, res, next) {
   });
 });
 
-// run this app on port 4567
-app.listen(4567, function () {
-  console.log('This app is running on 4567');
+
+// running this app on port 8080
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+
+server.listen(server_port, server_ip_address, function(){
+  console.log("Listening on " + server_ip_address + ", server_port " + server_port)
 });
 
 
