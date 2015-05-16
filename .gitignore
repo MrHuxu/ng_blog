@@ -3,3 +3,4 @@ node_modules/
 /archives/2013/.*
 /archives/2014/.*
 public/.DS_Store
+npm-debug.log
