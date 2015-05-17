@@ -46,23 +46,23 @@
 - ```insert(pos, val)```/```insert(pos, n, val)```：在迭代器指向的位置上插入一个/```n```个值为```val```的元素；
 - ```begin()```/```end()```：迭代器，在```insert()```等使用迭代器的地方可以使用，并且可以使用```+```/```-```操作改变位置，如以下代码：  
 
-	  	vector<int> v2(50);
-      	v2.insert(v2.begin(), 1);
-      	v2.insert(v2.begin() + 1, 2);
-  	  	cout << v2.at(0) << "  " << v2.at(1) << endl;     //=> 1  2  
+	  vector<int> v2(50);
+      v2.insert(v2.begin(), 1);
+      v2.insert(v2.begin() + 1, 2);
+  	  cout << v2.at(0) << "  " << v2.at(1) << endl;     //=> 1  2  
   	  
 - ```front()```/```back()```：返回```vector```的第一个/最后一个元素；  
 - ```push_back(elem)```/```pop_back()```：向```vector```的最后加入一个元素/从尾部删除一个元素；(我去，以后还写栈干屁啊，直接用```vector```就好了...)  
 - ```clear()```：移除所有元素，将```vector```容器清空；  
 - ```erase(pos)```/```erase(beg, end)```：前者是将一个位置(迭代器)上的元素删除，后者则是两个迭代器间的元素，比如：
 	
-	  	v2.erase(5);     //删除第四个元素
-	  	v2.erase(v2.begin(), v2.begin() + 3);    //删除从开始到第四个元素
+	  v2.erase(5);     //删除第四个元素
+	  v2.erase(v2.begin(), v2.begin() + 3);    //删除从开始到第四个元素
 
 - 全局函数```remove(pos1, pos2, val)```/```find(pos1, pos2, val)```：```remove()```将两个迭代器中间和```val```相等的都删除，```find```则返回一个指向两个迭代器之间第一个值为```val```的元素所在的位置，返回值也是一个迭代器：  
 
-	  	vector<int>::iterator pos = find(v2.begin(), v2.end(), 2);
-	  	v2.erase(pos);
+	  vector<int>::iterator pos = find(v2.begin(), v2.end(), 2);
+	  v2.erase(pos);
 	  
 ```erase()```和```remove()```的不同之处在于，```erase()```会使```vector```的```size```减小，而```remove()```对```size```无影响。  
 

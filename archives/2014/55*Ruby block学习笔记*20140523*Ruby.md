@@ -60,12 +60,12 @@
 上面那个链接还给出了一个不使用```&```而使用```yield```的方法，代码如下：  
 
 	def meth_yields(arg)
-  		puts yield(arg, 0) + yield(arg.upcase, 1)
+  	puts yield(arg, 0) + yield(arg.upcase, 1)
 	end
 	
 	meth_yields('frog') do |word, num|
-  		puts "in callback! word = #{word.inspect}, num = #{num.inspect}"
-  		word + num.to_s
+  	puts "in callback! word = #{word.inspect}, num = #{num.inspect}"
+  	word + num.to_s
 	end  
 	
 输出内容是：  
