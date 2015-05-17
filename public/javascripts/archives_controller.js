@@ -1,18 +1,27 @@
-blogModule.controller('archivesCtrl', function ($scope, $http) {
-  $scope.article_arr = [];
+blogModule.controller('archivesCtrl', function ($scope, $http, $rootScope, $state) {
+  $scope.articles = [];
+  $scope.tags = [];
 
   $http.get('/all_articles').success(function (data, status, headers, config) {
-    for (var i = 0, str = data.articles_2014.concat(data.articles_2013), len = str.length; i < len; i++) {
-      $scope.article_arr.push({
-        name        : str[i],
-        title       : str[i].split('*')[1],
-        time        : str[i].split('*')[2],
-        tags        : str[i].split('*')[3].split('.')[0].split('-'),
+    angular.forEach(data.articles_2014.concat(data.articles_2013), function (article) {
+      $scope.articles.push({
+        name        : article,
+        title       : article.split('*')[1],
+        time        : article.split('*')[2],
+        tags        : article.split('*')[3].split('.')[0].split('-'),
         filtered    : true,
-        contain_tag : function (tag_obj) {
-          return this.name.indexOf(tag_obj.name) != -1;
+        contain_tag : function (tag) {
+          return this.name.indexOf(tag) !== -1;
         }
       });
-    }
+    });
+
+    angular.forEach($scope.articles, function (article) {
+      angular.forEach(article.tags, function (tag) {
+        if ($scope.tags.indexOf(tag) === -1){
+          $scope.tags.push(tag);
+        }
+      });
+    });
   });
 });

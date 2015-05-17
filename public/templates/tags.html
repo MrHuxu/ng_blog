@@ -1,0 +1,10 @@
+<div class="tags">
+  <div ng-repeat="tag in tags">
+   <button 
+      class="btn btn-default btn-sm"
+      ng-class="{active: selectedTags.indexOf(tag) !== -1}"
+      ng-bind="tag"
+      ng-click="selectOrCancel(tag)">
+    </button>
+  </div>
+</div>

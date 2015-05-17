@@ -1,0 +1,7 @@
+<h1> Articles </h1>
+<div>
+  <div init-tags='{{tags}}' selected-tags='selectedTags' tags></div>
+  <div ng-repeat="article in articles | articleFilter:selectedTags">
+    <a ng-href="#/article/{{article.name}}" ng-bind="article.title"></a>
+  </div>
+</div>
