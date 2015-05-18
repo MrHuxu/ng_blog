@@ -9,12 +9,12 @@ This project is the new wheel that I maked. And after learning Angularjs, I want
 
 1. Get the source code from GitHub.
 
-      git clone https://github.com/MrHuxu/ng_blog.git
+        git clone https://github.com/MrHuxu/ng_blog.git
       
 2. Install necesarry packages.
 
-      cd ng_blog
-      npm install
+        cd ng_blog
+        npm install
   
     This step will install both npm and bower packages.
     
