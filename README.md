@@ -1,25 +1,33 @@
 # My New Blog
 
+[TOC]
 
-This project is the new wheel that I maked. And after learning Angularjs, I want to write some useful code by the knownology, so as I have done before, I also write a new blog this time.
+## Introduction
+This project is the new wheel that I maked. And after learning Angularjs, I want to write some useful code by the knownology, so as I have done before, I write a new blog this time.
 
-Deployment steps:
+## Deployment
 
-	git clone https://github.com/MrHuxu/ng_blog.git
-	cd ng_blog
-	npm install
-	
-This step clone all the code and install the packages used in backend code.
+1. Get the source code from GitHub.
 
-	npm install bower -g
-	cd public
-	bower install
-	
-This step will install all the packages used in frontend.
+      git clone https://github.com/MrHuxu/ng_blog.git
+      
+2. Install necesarry packages.
 
+      cd ng_blog
+      npm install
+  
+    This step will install both npm and bower packages.
+    
+3. Running this app by using ```gulp```.
+
+        npm install gulp -g
+        gulp develop  # visit this app at http://localhost:8080
+
+
+## Summary
 In a word, coding with Angular is a fanty experience, and I fell in love with operating the data in frontend instead of the doms, that makes everything magical!
 
-Todo:
+## Todo
 
 1. Make the page more beautiful
 2. Optimize the animation
