@@ -16,7 +16,6 @@ blogModule.controller('articleCtrl', function ($scope, $stateParams, $http, $sce
 
   $http.post('/all_articles', {year: file_year, name: file_name}).success(function (data, status, headers, config) {
     $scope.content = data;
-    NProgress.set(0.4);
   });
 
   $scope.showProgress = function () {
