@@ -23,5 +23,6 @@ blogModule.controller('archivesCtrl', function ($scope, $http, $rootScope, $stat
         }
       });
     });
+    NProgress.done();
   });
 });
