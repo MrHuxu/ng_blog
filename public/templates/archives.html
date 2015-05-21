@@ -3,7 +3,7 @@
   <div class="col-md-1" init-tags='{{tags}}' selected-tags='selectedTags' tags></div>
   <div class="col-md-9">
     <div ng-repeat="article in articles | articleFilter:selectedTags">
-      <a ng-href="#/article/{{article.name}}" ng-bind="article.title"></a>
+      <a ui-sref="article({name: article.name})" ng-bind="article.title"></a>
     </div>
   </div>
 </div>
