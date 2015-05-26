@@ -45,3 +45,42 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
     /* shadow */
     text-shadow: 0 0 0.5em #444;
 }
+
+
+ol li, div p, ul li {
+  font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: #696969;
+}
+
+pre code {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em 1.5em;
+  background: #2d2d2d;
+  color: #D1D9E1;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+pre, code   {
+  padding: 0;
+  letter-spacing: 0.5px;
+  font-family: Monaco,Menlo, "Courier New", monospace;
+}
+
+blockquote {
+  background: #dddddd;
+  padding: 0 0 0 15px;
+  margin: 0 0 18px;
+  border-left: 5px solid #690069;
+  font-family: Ubuntu Mono, Monaco,Menlo, "Courier New", monospace;
+  font-weight: normal;
+  line-height: 26px;
+  font-size: 15px;
+  color: #696969;
+  border-radius: 6px;
+}
