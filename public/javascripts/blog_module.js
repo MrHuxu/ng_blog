@@ -3,14 +3,15 @@ var blogModule = angular.module('blog', ['ui.router', 'hc.marked']);
 blogModule.run(
   [          '$rootScope', '$state', '$stateParams',
     function ($rootScope,   $state,   $stateParams) {
-    $rootScope.$state = $state;
-    $rootScope.$stateParams = $stateParams;
+      $rootScope.$state = $state;
+      $rootScope.$stateParams = $stateParams;
     }
   ]
 );
 
-blogModule.config(function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+blogModule.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+  $locationProvider.html5Mode(true).hashPrefix('!');
+  $urlRouterProvider.otherwise('/');   // This can just work on hashbang mode
   var $appName = 'Life of xhu - '
   var startProgress = function () {
     NProgress.start();
