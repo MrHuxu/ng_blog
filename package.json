@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
+    "start": "NODE_ENV=production node app.js",
     "postinstall": "export HOME=~/app-root/runtime/repo; cd public; ../node_modules/bower/bin/bower install; cd ..; ./node_modules/gulp/bin/gulp.js compress"
   },
   "main": "app.js",
