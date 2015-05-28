@@ -6,15 +6,21 @@
   <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/bower_components/highlightjs/styles/tomorrow-night-eighties.css">
   <link rel="stylesheet" type="text/css" href="/bower_components/nprogress/nprogress.css">
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/animate.css">
   <base href="/">
 </head>
 <body>
+  <div class='header'>
+    <h1>Life of xhu</h1>
+    <div class='links'>
+      <a class='link1' ui-sref="index">Home</a>
+      <a class='link2' ui-sref="archives">Archives</a>
+      <a class='link3' ui-sref="projects">Projects</a>
+      <a class='link4' ui-sref="aboutme">Aboutme</a>
+    </div>
+  </div>
   <div class="ribbon"><a href="https://github.com/MrHuxu/ng_blog" target="_blank">Fork me on GitHub!</a></div>
-  <a ui-sref="index">Home</a>
-  <a ui-sref="archives">Archives</a>
-  <a ui-sref="projects">Projects</a>
-  <a ui-sref="aboutme">Aboutme</a>
   <div id="clock"><script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script></div>
   <div ui-view></div>
 </body>

@@ -10,6 +10,26 @@ body {
   background-color: #fafafa;
 }
 
+.header {
+  position: relative;
+  height: 80px;
+  margin-top: -20px;
+}
+
+.header h1 {
+  position: absolute;
+}
+
+.links {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.links a {
+  opacity: 0.8;
+}
+
 a {
   color: #05a0db;
 }
