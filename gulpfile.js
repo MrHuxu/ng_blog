@@ -42,7 +42,7 @@ gulp.task('compress', ['js', 'css'], function () {});
 gulp.task('server', shell.task('NODE_ENV=production node app'));
 
 gulp.task('prd', function () {
-  runSequence('bower', 'compress', 'server');
+  runSequence('compress', 'server');
 });
 
 gulp.task('dev', function () {

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js prd",
-    "postinstall": "export HOME=~/app-root/runtime/repo"
+    "postinstall": "export HOME=~/app-root/runtime/repo; cd public; ../node_modules/bower/bin/bower install"
   },
   "main": "app.js",
   "dependencies": {
