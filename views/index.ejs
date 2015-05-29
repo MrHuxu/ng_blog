@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html ng-app="blog">
 <head>
   <title ng-bind="$state.current.data.pageTitle"></title>
@@ -25,6 +25,16 @@
       <a class='link4' ui-sref="aboutme">Aboutme</a>
     </div>
   </div>
+  <div>
+
+    <button class='btn btn-success' id="drop">点击这里</button>
+    <div id='test1' style='display:none'>
+      <div><a href="">link1</a></div>
+      <div><a href="">link2</a></div>
+      <div><a href="">link3</a></div>
+      <div><a href="">link4</a></div>
+    </div>
+  </div>
   <div class="ribbon"><a href="https://github.com/MrHuxu/ng_blog" target="_blank">Fork me on GitHub!</a></div>
   <div id="clock"><script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script></div>
   <div ui-view></div>
@@ -45,5 +55,6 @@
   <script type="text/javascript" src="/javascripts/common_controller.js"></script>
   <script type="text/javascript" src="/javascripts/archives_controller.js"></script>
   <script type="text/javascript" src="/javascripts/article_controller.js"></script>
+  <script type="text/javascript" src="/javascripts/menu.js"></script>
 <% } %>
 </html>
