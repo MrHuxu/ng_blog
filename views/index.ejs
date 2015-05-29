@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="blog">
+<head>
+  <title ng-bind="$state.current.data.pageTitle"></title>
+  <link rel="shortcut icon" type="image" href="https://raw.githubusercontent.com/MrHuxu/img-repo/master/ng-blog/MyLogoT.PNG">
+  <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <% if (process.env.NODE_ENV === 'production') { %>
+    <link rel="stylesheet" type="text/css" href="/dist/all.min.css">
+  <% } else { %>
+    <link rel="stylesheet" type="text/css" href="/bower_components/highlightjs/styles/tomorrow-night-eighties.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/nprogress/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/animate.css">
+  <% } %>
+  <base href="/">
+</head>
+
+<body>
+  <div class='header'>
+    <h1>Life of xhu</h1>
+    <div class='links'>
+      <a class='link1' ui-sref="index">Home</a>
+      <a class='link2' ui-sref="archives">Archives</a>
+      <a class='link3' ui-sref="projects">Projects</a>
+      <a class='link4' ui-sref="aboutme">Aboutme</a>
+    </div>
+  </div>
+  <div class="ribbon"><a href="https://github.com/MrHuxu/ng_blog" target="_blank">Fork me on GitHub!</a></div>
+  <div id="clock"><script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script></div>
+  <div ui-view></div>
+</body>
+
+<% if (process.env.NODE_ENV === 'production') { %>
+  <script type="text/javascript" src="/dist/all.min.js"></script>
+<% } else { %>
+  <script type="text/javascript" src="/bower_components/nprogress/nprogress.js"></script>
+  <script type="text/javascript" src="/bower_components/highlightjs/highlight.pack.js"></script>
+  <script type="text/javascript" src="/bower_components/marked/marked.min.js"></script>
+  <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="/javascripts/angular-marked.min.js"></script>
+  <script type="text/javascript" src="/javascripts/blog_module.js"></script>
+  <script type="text/javascript" src="/javascripts/article_filter.js"></script>
+  <script type="text/javascript" src="/javascripts/tags_directive.js"></script>
+  <script type="text/javascript" src="/javascripts/common_controller.js"></script>
+  <script type="text/javascript" src="/javascripts/archives_controller.js"></script>
+  <script type="text/javascript" src="/javascripts/article_controller.js"></script>
+<% } %>
+</html>
