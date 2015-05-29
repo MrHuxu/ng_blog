@@ -415,11 +415,11 @@
   }
 }
 
-#test1 {
-  -webkit-animation: dropdown 0.8s;
-  -moz-animation: dropdown 0.8s;
-  -o-animation: dropdown 0.8s;
-  animation: dropdown 0.8s;
+.dropin {
+  -webkit-animation: dropdown 0.6s;
+  -moz-animation: dropdown 0.6s;
+  -o-animation: dropdown 0.6s;
+  animation: dropdown 0.6s;
   -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
@@ -465,4 +465,16 @@
     height: 0;
     visibility: hidden;
   }
+}
+
+.dropout {
+  -webkit-animation: dropup 0.6s;
+  -moz-animation: dropup 0.6s;
+  -o-animation: dropup 0.6s;
+  animation: dropup 0.6s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  overflow: hidden;
 }
