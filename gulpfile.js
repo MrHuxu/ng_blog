@@ -35,15 +35,9 @@ gulp.task('css', function () {
     .pipe(gulp.dest('./public/dist'));
 });
 
-gulp.task('bower', shell.task('cd public && ../node_modules/bower/bin/bower install'));
-
 gulp.task('compress', ['js', 'css'], function () {});
 
-gulp.task('server', shell.task('NODE_ENV=production node app'));
-
-gulp.task('prd', function () {
-  runSequence('compress', 'server');
-});
+gulp.task('prd', ['compress'], shell.task('NODE_ENV=production node app'));
 
 gulp.task('dev', function () {
   nodemon({
