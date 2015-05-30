@@ -19,6 +19,18 @@ blogModule.controller('articleCtrl', function ($scope, $stateParams, $http, $sce
   });
 
   $scope.showProgress = function () {
+    angular.forEach(document.getElementsByTagName('pre'), function (pre) {
+      var code = pre.children[0];
+      var line_num = code.innerHTML.split('\n').length - 1;
+      var line_num_ul = document.createElement('ul');
+      line_num_ul.className = 'numbering';
+      for (var i = 1; i <= line_num; i++) {
+        var line_num_li = document.createElement('li');
+        line_num_li.innerText = i;
+        line_num_ul.appendChild(line_num_li);
+      }
+      pre.appendChild(line_num_ul);
+    })
     NProgress.done();
   };
 });

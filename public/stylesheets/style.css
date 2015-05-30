@@ -102,25 +102,46 @@ ol li, div p, ul li {
   font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
   font-weight: normal;
   font-size: 15px;
-  line-height: 26px;
+  line-height: 25px;
   color: #696969;
 }
 
 pre code {
   display: block;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 1em 1.5em;
   background: #2d2d2d;
   color: #D1D9E1;
   font-size: 14px;
   line-height: 20px;
+  padding: 10px 0 10px 35px;
 }
 
-pre, code   {
+pre, code {
+  position: relative;
   padding: 0;
-  letter-spacing: 0.5px;
-  font-family: Monaco,Menlo, "Courier New", monospace;
+  font-family: Monaco, Menlo, "Courier New", monospace;
+  overflow: auto;
+}
+
+pre ul.numbering {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 100%;
+  margin: 0;
+  padding: 12px 2px 12px 0;
+  border-right: 1px solid #C3CCD0;
+  border-radius: 3px 0 0 3px;
+  background-color: #EEE;
+  text-align: right;
+  font-family: Menlo, monospace;
+  font-size: 0.8em;
+  color: #AAA;
+}
+
+ul.numbering li {
+  line-height: 20px;
 }
 
 blockquote {
@@ -128,7 +149,7 @@ blockquote {
   padding: 0 0 0 15px;
   margin: 0 0 18px;
   border-left: 5px solid #690069;
-  font-family: Ubuntu Mono, Monaco,Menlo, "Courier New", monospace;
+  font-family: Ubuntu Mono, Monaco, Menlo, "Courier New", monospace;
   font-weight: normal;
   line-height: 26px;
   font-size: 15px;
