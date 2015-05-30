@@ -42,11 +42,13 @@
   }
 }
 
-.header h1 {
-  -webkit-animation: fadeInDown 1.2s; /* Safari 4+ */
-  -moz-animation:    fadeInDown 1.2s; /* Fx 5+ */
-  -o-animation:      fadeInDown 1.2s; /* Opera 12+ */
-  animation:         fadeInDown 1.2s; /* IE 10+, Fx 29+ */
+@media screen and (min-width: 768px) {
+  .header h1 {
+    -webkit-animation: fadeInDown 1.2s; /* Safari 4+ */
+    -moz-animation:    fadeInDown 1.2s; /* Fx 5+ */
+    -o-animation:      fadeInDown 1.2s; /* Opera 12+ */
+    animation:         fadeInDown 1.2s; /* IE 10+, Fx 29+ */
+  }
 }
 
 @-webkit-keyframes bubble1 {

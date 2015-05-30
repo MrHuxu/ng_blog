@@ -3,43 +3,40 @@ blogModule.controller('archivesCtrl', function ($scope, $http, $rootScope, $stat
   $scope.articles_2013 = [];
   $scope.tags = [];
 
+  var generate_article_obj = function (article) {
+    return {
+      name        : article,
+      title       : article.split('*')[1],
+      time        : article.split('*')[2],
+      tags        : article.split('*')[3].split('.')[0].split('-'),
+      filtered    : true,
+      contain_tag : function (tag) {
+        return this.name.indexOf(tag) !== -1;
+      }
+    };
+  };
+
+  var save_tag = function (article) {
+    angular.forEach(article.tags, function (tag) {
+      if ($scope.tags.indexOf(tag) === -1){
+        $scope.tags.push(tag);
+      }
+    });
+  }
+
   $http.get('/all_articles').success(function (data, status, headers, config) {
     angular.forEach(data.articles_2014, function (article) {
-      $scope.articles_2014.push({
-        name        : article,
-        title       : article.split('*')[1],
-        time        : article.split('*')[2],
-        tags        : article.split('*')[3].split('.')[0].split('-'),
-        filtered    : true,
-        contain_tag : function (tag) {
-          return this.name.indexOf(tag) !== -1;
-        }
-      });
+      var $article_obj = generate_article_obj(article);
+      $scope.articles_2014.push($article_obj);
+      save_tag($article_obj);
     });
 
-    console.log(data);
-    console.log(data.articles_2014);
-    console.log(data.articles_2013);
     angular.forEach(data.articles_2013, function (article) {
-      $scope.articles_2013.push({
-        name        : article,
-        title       : article.split('*')[1],
-        time        : article.split('*')[2],
-        tags        : article.split('*')[3].split('.')[0].split('-'),
-        filtered    : true,
-        contain_tag : function (tag) {
-          return this.name.indexOf(tag) !== -1;
-        }
-      });
+      var $article_obj = generate_article_obj(article);
+      $scope.articles_2013.push($article_obj);
+      save_tag($article_obj);
     });
 
-    angular.forEach($scope.articles_2014.concat($scope.articles_2013), function (article) {
-      angular.forEach(article.tags, function (tag) {
-        if ($scope.tags.indexOf(tag) === -1){
-          $scope.tags.push(tag);
-        }
-      });
-    });
     NProgress.done();
   });
 });
