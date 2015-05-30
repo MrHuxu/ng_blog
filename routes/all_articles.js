@@ -4,8 +4,8 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   res.send({
-    articles_2013: fs.readdirSync('./archives/2013').slice(1).reverse(),
-    articles_2014: fs.readdirSync('./archives/2014').slice(1).reverse()
+    articles_2013: fs.readdirSync('./archives/2013').slice(0).reverse(),
+    articles_2014: fs.readdirSync('./archives/2014').slice(0).reverse()
   });
 });
 
