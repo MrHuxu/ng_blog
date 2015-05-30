@@ -125,11 +125,19 @@
   }
 }
 
-.link1 {
-  -webkit-animation: bubble1 3s;
-  -moz-animation: bubble1 3s;
-  -o-animation: bubble1 3s;
-  animation: bubble1 3s;
+@media screen and (min-width: 768px) {
+  .link1 {
+    -webkit-animation: bubble1 3s;
+    -moz-animation: bubble1 3s;
+    -o-animation: bubble1 3s;
+    animation: bubble1 3s;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .link1 {
+    display: none;
+  }
 }
 
 @-webkit-keyframes bubble2 {
@@ -207,11 +215,19 @@
   }
 }
 
-.link2 {
-  -webkit-animation: bubble2 3s;
-  -moz-animation: bubble2 3s;
-  -o-animation: bubble2 3s;
-  animation: bubble2 3s;
+@media screen and (min-width: 768px) {
+  .link2 {
+    -webkit-animation: bubble2 3s;
+    -moz-animation: bubble2 3s;
+    -o-animation: bubble2 3s;
+    animation: bubble2 3s;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .link2 {
+    display: none;
+  }
 }
 
 @-webkit-keyframes bubble3 {
@@ -289,11 +305,19 @@
   }
 }
 
-.link3 {
-  -webkit-animation: bubble3 3s;
-  -moz-animation: bubble3 3s;
-  -o-animation: bubble3 3s;
-  animation: bubble3 3s;
+@media screen and (min-width: 768px) {
+  .link3 {
+    -webkit-animation: bubble3 3s;
+    -moz-animation: bubble3 3s;
+    -o-animation: bubble3 3s;
+    animation: bubble3 3s;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .link3 {
+    display: none;
+  }
 }
 
 @-webkit-keyframes bubble4 {
@@ -371,13 +395,20 @@
   }
 }
 
-.link4 {
-  -webkit-animation: bubble4 3s;
-  -moz-animation: bubble4 3s;
-  -o-animation: bubble4 3s;
-  animation: bubble4 3s;
+@media screen and (min-width: 768px) {
+  .link4 {
+    -webkit-animation: bubble4 3s;
+    -moz-animation: bubble4 3s;
+    -o-animation: bubble4 3s;
+    animation: bubble4 3s;
+  }
 }
 
+@media screen and (max-width: 767px) {
+  .link4 {
+    display: none;
+  }
+}
 
 @-webkit-keyframes dropdown {
   0% {
@@ -425,6 +456,7 @@
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   overflow: hidden;
+  z-index: 99;
 }
 
 @-webkit-keyframes dropup {
@@ -477,4 +509,5 @@
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   overflow: hidden;
+  z-index: 99;
 }

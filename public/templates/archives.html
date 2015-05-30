@@ -1,9 +1,15 @@
-<h1> Articles </h1>
-<div>
-  <div class="col-md-1" init-tags='{{tags}}' selected-tags='selectedTags' tags></div>
-  <div class="col-md-9">
-    <div ng-repeat="article in articles | articleFilter:selectedTags">
+<div class="col-md-9">
+  <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget-title">Archives</h5>
+  <div class="col-xs-12 col-sm-6 col-md-4 title-block" ng-repeat="article in articles | articleFilter:selectedTags">
+    <div class="title-panel">
+      <p ng-bind="article.time | timeFilter"></p>
       <a ui-sref="article({name: article.name})" ng-bind="article.title"></a>
     </div>
+  </div>
+</div>
+<div class="col-md-3">
+  <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget-title">Tags</h4>
+  <div class="col-xs-12 col-sm-12 col-md-12 tag-block">
+    <div init-tags="{{tags}}" selected-tags="selectedTags" tags></div>
   </div>
 </div>

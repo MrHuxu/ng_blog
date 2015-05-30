@@ -10,7 +10,6 @@ blogModule.run(
 );
 
 blogModule.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
-  $locationProvider.html5Mode(true).hashPrefix('!');
   $urlRouterProvider.otherwise('/');   // This can just work on hashbang mode
   var $appName = 'Life of xhu - '
   var startProgress = function () {

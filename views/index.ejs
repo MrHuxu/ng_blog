@@ -24,17 +24,17 @@
       <div class="link3"><a ui-sref="projects">Projects</a></div>
       <div class="link4"><a ui-sref="aboutme">Aboutme</a></div>
     </div>
+    <button class='btn btn-success drop-btn' id="dropdown-btn">点击这里</button>
+    <div id='dropdown-list' style='display:none'>
+      <div><a ui-sref="index">Home</a></div>
+      <div><a ui-sref="archives">Archives</a></div>
+      <div><a ui-sref="projects">Projects</a></div>
+      <div><a ui-sref="aboutme">Aboutme</a></div>
+    </div>
   </div>
   <div class="ribbon"><a href="https://github.com/MrHuxu/ng_blog" target="_blank">Fork me on GitHub!</a></div>
   <div class='content'>
-    <button class='btn btn-success' id="drop">点击这里</button>
-    <div id='test1' style='display:none'>
-      <div><a href="">link1</a></div>
-      <div><a href="">link2</a></div>
-      <div><a href="">link3</a></div>
-      <div><a href="">link4</a></div>
-    </div>
-    <div ui-view></div>
+    <div ui-view class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-lg-offset-2"></div>
   </div>
 </body>
 
@@ -49,6 +49,7 @@
   <script type="text/javascript" src="bower_components/angular-marked/angular-marked.js"></script>
   <script type="text/javascript" src="/javascripts/blog_module.js"></script>
   <script type="text/javascript" src="/javascripts/article_filter.js"></script>
+  <script type="text/javascript" src="/javascripts/time_filter.js"></script>
   <script type="text/javascript" src="/javascripts/tags_directive.js"></script>
   <script type="text/javascript" src="/javascripts/common_controller.js"></script>
   <script type="text/javascript" src="/javascripts/archives_controller.js"></script>
