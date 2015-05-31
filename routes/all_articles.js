@@ -1,6 +1,8 @@
 var fs = require('fs');
 var express = require('express');
 var router = express.Router();
+var markdown = require('markdown').markdown;
+var highlight = require('highlight').Highlight;
 
 var getAllArticles = function () {
   var articles = fs.readdirSync('./archives').reverse();
@@ -17,7 +19,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/single_article', function (req, res, next) {
   fs.readFile('./archives/' + req.body.name, 'utf8', function (err, data) {
-    res.send(data);
+    res.send(highlight(markdown.toHTML(data), false, true).replace(/&amp;/g, "").replace(/#39;/g, "'"));
   });
 });
 
@@ -32,7 +34,7 @@ router.post('/page_articles', function (req, res, next) {
   for (var i = 0, len = page_articles.length; i < len; i++) {
     response.articles.push({
       title: page_articles[i],
-      content: fs.readFileSync('./archives/' + page_articles[i]).toString().slice(0, 400) + ' ...'
+      content: highlight(markdown.toHTML(fs.readFileSync('./archives/' + page_articles[i]).toString().slice(0, 400) + ' ...'), false, true).replace(/&amp;/g, "").replace(/#39;/g, "'")
     });
   }
   res.send(response);
