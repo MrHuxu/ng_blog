@@ -11,8 +11,6 @@ var gulp = require('gulp'),
 gulp.task('js', function () {
   gulp.src([
       './public/bower_components/nprogress/nprogress.js',
-      './public/bower_components/highlightjs/highlight.pack.js',
-      './public/bower_components/marked/marked.min.js',
       './public/bower_components/angular/angular.min.js',
       './public/bower_components/angular-ui-router/release/angular-ui-router.min.js',
       './public/javascripts/blog_module.js', 
@@ -26,7 +24,7 @@ gulp.task('js', function () {
 
 gulp.task('css', function () {
   gulp.src([
-      './public/bower_components/highlightjs/styles/tomorrow-night-eighties.css',
+      './public/stylesheets/tomorrow-night-eighties.css',
       './public/bower_components/nprogress/nprogress.css',
       './public/stylesheets/*.css'
     ])

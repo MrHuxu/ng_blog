@@ -33,7 +33,7 @@ router.post('/page_articles', function (req, res, next) {
   var page_articles = articles.slice(page * 5, page * 5 + 5);
   for (var i = 0, len = page_articles.length; i < len; i++) {
     response.articles.push({
-      title: page_articles[i],
+      filename: page_articles[i],
       content: highlight(markdown.toHTML(fs.readFileSync('./archives/' + page_articles[i]).toString().slice(0, 400) + ' ...'), false, true).replace(/&amp;/g, "").replace(/#39;/g, "'")
     });
   }

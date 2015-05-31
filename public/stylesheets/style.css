@@ -274,6 +274,22 @@ blockquote {
 
 .index-content {
   margin-top: 30px;
+  position: relative;
+}
+
+.index-footer {
+  margin-top: 15px;
+  padding: 10px 0 0 0;
+  border-top: 2px solid #ddd;
+}
+
+.index-footer button {
+  border: 0;
+  color: #9e9c9f;
+}
+
+.index-footer button:hover {
+  background-color: #fff;
 }
 
 .pagination {

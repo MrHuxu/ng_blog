@@ -1,7 +1,10 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 index-block">
-  <div ng-repeat="article in articles" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget index-content">
+  <div ng-repeat="article in articles track by $index" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget index-content" on-finish-render="ngRepeatFinished">
     <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget-title" ng-bind="article.title"></h4>
-    <p ng-bind-html="article.content"></p>
+    <p id="{{'index' + $index}}" ng-bind-html="article.content"></p>
+    <div class='index-footer'>
+      <button class="btn btn-default" ui-sref="article({name: article.filename})">Continue Reading</button>
+    </div>
   </div>
 </div>
 
