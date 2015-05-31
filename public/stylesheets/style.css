@@ -277,6 +277,11 @@ blockquote {
   position: relative;
 }
 
+.index-header {
+  border-bottom: 2px solid #ddd;
+  height: 40px;
+}
+
 .index-footer {
   margin-top: 15px;
   padding: 10px 0 0 0;
