@@ -1,6 +1,5 @@
 blogModule.controller('archivesCtrl', function ($scope, $http, $rootScope, $state) {
-  $scope.articles_2014 = [];
-  $scope.articles_2013 = [];
+  $scope.articles = {};
   $scope.tags = [];
 
   var generate_article_obj = function (article) {
@@ -26,9 +25,14 @@ blogModule.controller('archivesCtrl', function ($scope, $http, $rootScope, $stat
 
   $http.get('/all_articles').success(function (data, status, headers, config) {
     angular.forEach(data.articles, function (article) {
-      var $article_obj = generate_article_obj(article);
-      $scope['articles_' + $article_obj.time.slice(0, 4)].push($article_obj);
-      save_tag($article_obj);
+      if (article[0] !== '.') {
+        var $article_obj = generate_article_obj(article);
+        var $key = 'articles_' + $article_obj.time.slice(0, 4);
+        if ($scope.articles[$key] === undefined)
+          $scope.articles[$key] = [];
+        $scope.articles[$key].push($article_obj);
+        save_tag($article_obj);
+      }
     });
     NProgress.done();
   });

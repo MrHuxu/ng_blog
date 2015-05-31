@@ -1,11 +1,13 @@
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget pagination">
-  <button class="btn btn-default prev-btn" ng-click="prevPage()" ng-if="currentPage !== 0"><< Prev</button>
-  <button class="btn btn-default page-btn"
-          ng-repeat="page in pages track by $index"
-          ng-class="{num: page !== '...', current: page === currentPage}" 
-          ng-click="page === '...' ? null : changePage(page)"
-          ng-disabled="page === '...' || page === currentPage"
-          ng-bind="page">
-  </button>
-  <button class="btn btn-default next-btn" ng-click="nextPage()" ng-if="currentPage !== pageCount">Next >></button>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pagination-block">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget pagination">
+    <button class="btn btn-default prev-btn" ng-click="prevPage()" ng-if="currentPage !== 0"><< Prev</button>
+    <button class="btn btn-default page-btn"
+            ng-repeat="page in pages track by $index"
+            ng-class="{num: page !== '...', current: page === currentPage}" 
+            ng-click="page === '...' ? null : changePage(page)"
+            ng-disabled="page === '...' || page === currentPage"
+            ng-bind="page">
+    </button>
+    <button class="btn btn-default next-btn" ng-click="nextPage()" ng-if="currentPage !== pageCount">Next >></button>
+  </div>
 </div>

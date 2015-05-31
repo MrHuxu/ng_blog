@@ -2,7 +2,8 @@ blogModule.directive('pagination', function(){
   return {
     priority: 1,
     scope: {
-      page: '='
+      currentPage: '=',
+      articleCount: '@'
     },
     restrict: 'AE',
     templateUrl: '/templates/pagination.html',
