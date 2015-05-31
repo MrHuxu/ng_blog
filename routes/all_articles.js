@@ -4,15 +4,17 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   res.send({
-    articles_2013: fs.readdirSync('./archives/2013').slice(0).reverse(),
-    articles_2014: fs.readdirSync('./archives/2014').slice(0).reverse()
+    articles: fs.readdirSync('./archives').reverse()
   });
 });
 
-router.post('/', function (req, res, next) {
-  fs.readFile('./archives/' + req.body.year + '/' + req.body.name, 'utf8', function (err, data) {
+router.post('/single_article', function (req, res, next) {
+  fs.readFile('./archives/' + req.body.name, 'utf8', function (err, data) {
     res.send(data);
   });
+});
+
+router.post('/page_articles', function (req, res, next) {
 });
 
 module.exports = router;

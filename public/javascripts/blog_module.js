@@ -10,7 +10,7 @@ blogModule.run(
 );
 
 blogModule.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
-  $locationProvider.html5Mode(true).hashPrefix('!');
+  //$locationProvider.html5Mode(true).hashPrefix('!');
   $urlRouterProvider.otherwise('/');   // This can just work on hashbang mode
   var $appName = 'Life of xhu - '
   var startProgress = function () {
@@ -19,7 +19,7 @@ blogModule.config(function ($locationProvider, $stateProvider, $urlRouterProvide
   $stateProvider
   .state('index', {
     url: '/',
-    controller: 'commonCtrl',
+    controller: 'indexCtrl',
     templateUrl: '/templates/index.html',
     data: { pageTitle: $appName + 'Home' },
     onEnter: startProgress

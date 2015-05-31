@@ -14,7 +14,7 @@ blogModule.controller('articleCtrl', function ($scope, $stateParams, $http, $sce
   var file_year = file_name_arr[2].substring(0, 4);
   $state.current.data = { pageTitle: 'Life of xhu - ' + file_name_arr[1] };
 
-  $http.post('/all_articles', {year: file_year, name: file_name}).success(function (data, status, headers, config) {
+  $http.post('/all_articles/single_article', {year: file_year, name: file_name}).success(function (data, status, headers, config) {
     $scope.content = data;
   });
 

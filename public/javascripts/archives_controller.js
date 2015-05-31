@@ -25,18 +25,11 @@ blogModule.controller('archivesCtrl', function ($scope, $http, $rootScope, $stat
   }
 
   $http.get('/all_articles').success(function (data, status, headers, config) {
-    angular.forEach(data.articles_2014, function (article) {
+    angular.forEach(data.articles, function (article) {
       var $article_obj = generate_article_obj(article);
-      $scope.articles_2014.push($article_obj);
+      $scope['articles_' + $article_obj.time.slice(0, 4)].push($article_obj);
       save_tag($article_obj);
     });
-
-    angular.forEach(data.articles_2013, function (article) {
-      var $article_obj = generate_article_obj(article);
-      $scope.articles_2013.push($article_obj);
-      save_tag($article_obj);
-    });
-
     NProgress.done();
   });
 });
