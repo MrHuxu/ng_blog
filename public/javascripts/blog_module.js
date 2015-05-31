@@ -1,4 +1,4 @@
-var blogModule = angular.module('blog', ['ui.router', 'hc.marked']);
+var blogModule = angular.module('blog', ['ui.router']);
 
 blogModule.run(
   [          '$rootScope', '$state', '$stateParams',
