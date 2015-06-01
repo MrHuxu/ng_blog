@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/single_article', function (req, res, next) {
   fs.readFile('./archives/' + req.body.name, 'utf8', function (err, data) {
-    res.send(highlight(markdown.toHTML(data), false, true).replace(/&amp;/g, "").replace(/#39;/g, "'"));
+    res.send(markdown.toHTML(data));
   });
 });
 

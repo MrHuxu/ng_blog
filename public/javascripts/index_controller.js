@@ -32,8 +32,8 @@ blogModule.controller('indexCtrl', function ($scope, $http, $sce) {
       });
     }
   });
-  
+
   $scope.$on('ngRepeatFinished', function() {
-    showLineNumAndProgress();
+    postArticleRendered();
   });
 })

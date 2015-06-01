@@ -10,7 +10,7 @@ blogModule.directive('postRender', function(){
     link: function($scope, iElm, iAttrs, controller) {
       $scope.$watch('content', function (value) {
         if (value)
-          showLineNumAndProgress();
+          postArticleRendered();
       });
     }
   };

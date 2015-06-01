@@ -10,6 +10,7 @@ var gulp = require('gulp'),
 
 gulp.task('js', function () {
   gulp.src([
+      './public/bower_components/highlightjs/highlight.pack.js',
       './public/bower_components/nprogress/nprogress.js',
       './public/bower_components/angular/angular.min.js',
       './public/bower_components/angular-ui-router/release/angular-ui-router.min.js',
@@ -24,7 +25,7 @@ gulp.task('js', function () {
 
 gulp.task('css', function () {
   gulp.src([
-      './public/stylesheets/tomorrow-night-eighties.css',
+      './bower_components/highlightjs/styles/tomorrow-night-eighties.css',
       './public/bower_components/nprogress/nprogress.css',
       './public/stylesheets/*.css'
     ])

@@ -223,9 +223,9 @@ pre code {
   padding: 10px 0 10px 35px;
 }
 
-pre, code {
+pre {
   position: relative;
-  padding: 0;
+  padding: 0 0 0 25px;
   font-family: Monaco, Menlo, "Courier New", monospace;
   width: 100%;
 }
@@ -245,7 +245,7 @@ pre ul.numbering {
   width: 25px;
   height: 100%;
   margin: 0;
-  padding: 12px 2px 12px 0;
+  padding: 10px 0 10px 0;
   border-right: 1px solid #C3CCD0;
   border-radius: 3px 0 0 3px;
   background-color: #EEE;
