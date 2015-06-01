@@ -1,5 +1,24 @@
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 index-block">
-  <div ng-repeat="article in articles track by $index" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget index-content" on-finish-render="ngRepeatFinished">
+<div class="col-md-4 col-lg-3 sidebar">
+  <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget-title">Me</h4>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget description">
+    <div>xhu</div>
+    <div>跳大飞机</div>
+    <div>金牛座程序员</div>
+    <div>唱歌，编程，看书</div>
+    <div>等谁谁怀孕</div>
+  </div>
+  <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget-title">Motto</h4>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget motto">
+    <p>thought & thinking & doing & done</p>
+  </div>
+  <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget-title">Latest</h4>
+  <div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget latest">
+  </div>
+  </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-9 col-md-offset-3 col-lg-9 col-lg-offset-3 index-block">
+   <div ng-repeat="article in articles track by $index" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget index-content" on-finish-render="ngRepeatFinished">
     <div class="index-header">
       <h4 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 widget-title" ng-bind="article.title"></h4>
     </div>
@@ -8,6 +27,5 @@
       <button class="btn btn-default" ui-sref="article({name: article.filename})">Continue Reading</button>
     </div>
   </div>
+  <pagination current-page="page" article-count="{{article_count}}"></pagination>
 </div>
-
-<pagination current-page="page" article-count="{{article_count}}"></pagination>

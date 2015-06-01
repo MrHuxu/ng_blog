@@ -11,6 +11,26 @@ body {
   overflow-x: hidden;
 }
 
+.sidebar {
+  position: fixed;
+}
+
+@media screen and (min-width: 1200px) {
+  .sidebar {
+    top: 242px;
+    right: 66%;
+    width: 18%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .sidebar {
+    top: 242px;
+    left: 1%;
+    width: 25%;
+  }
+}
+
 a, a:hover, a:visited, a:link, a:active {
   text-decoration: none;
 }
@@ -52,10 +72,6 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
     left: 20%;
     opacity: 0.9;
     padding-left: 20px;
-  }
-
-  .index-block, .pagination-block {
-    padding: 0 100px 0 100px;
   }
 
   .links {
@@ -225,7 +241,7 @@ pre code {
 
 pre {
   position: relative;
-  padding: 0 0 0 25px;
+  padding: 0 0 0 30px;
   font-family: Monaco, Menlo, "Courier New", monospace;
   width: 100%;
 }
@@ -242,10 +258,10 @@ pre ul.numbering {
   position: absolute;
   top: 0;
   left: 0;
-  width: 25px;
+  width: 30px;
   height: 100%;
   margin: 0;
-  padding: 10px 0 10px 0;
+  padding: 10px 5px 10px 0;
   border-right: 1px solid #C3CCD0;
   border-radius: 3px 0 0 3px;
   background-color: #EEE;
@@ -257,6 +273,7 @@ pre ul.numbering {
 
 ul.numbering li {
   line-height: 20px;
+  text-align: center;
 }
 
 blockquote {

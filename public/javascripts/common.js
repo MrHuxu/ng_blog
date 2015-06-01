@@ -38,3 +38,13 @@ var postArticleRendered = function () {
     NProgress.done();
   }());
 };
+
+(function detectScroll () {
+  window.onscroll = function (ev) {
+    console.log(window.scrollY);
+    if (window.scrollY >= 222)
+      document.getElementsByClassName('sidebar')[0].style.top = '20px';
+    else 
+      document.getElementsByClassName('sidebar')[0].style.top = 242 - window.scrollY + 'px';
+  }; 
+}());
