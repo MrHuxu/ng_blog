@@ -25,7 +25,7 @@ gulp.task('js', function () {
 
 gulp.task('css', function () {
   gulp.src([
-      './bower_components/highlightjs/styles/tomorrow-night-eighties.css',
+      './public/bower_components/highlightjs/styles/tomorrow-night-eighties.css',
       './public/bower_components/nprogress/nprogress.css',
       './public/stylesheets/*.css'
     ])
