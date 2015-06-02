@@ -1,8 +1,7 @@
 var fs = require('fs');
 var express = require('express');
 var router = express.Router();
-var markdown = require('markdown').markdown;
-var highlight = require('highlight').Highlight;
+var marked = require('marked');
 
 var getAllArticles = function () {
   var articles = fs.readdirSync('./archives').reverse();
@@ -19,7 +18,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/single_article', function (req, res, next) {
   fs.readFile('./archives/' + req.body.name, 'utf8', function (err, data) {
-    res.send(markdown.toHTML(data));
+    res.send(marked(data));
   });
 });
 
@@ -34,7 +33,7 @@ router.post('/page_articles', function (req, res, next) {
   for (var i = 0, len = page_articles.length; i < len; i++) {
     response.articles.push({
       filename: page_articles[i],
-      content: markdown.toHTML(fs.readFileSync('./archives/' + page_articles[i]).toString().slice(0, 500) + ' ...')
+      content: marked(fs.readFileSync('./archives/' + page_articles[i]).toString().slice(0, 500) + ' ...')
     });
   }
   res.send(response);

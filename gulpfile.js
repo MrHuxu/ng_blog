@@ -5,8 +5,7 @@ var gulp = require('gulp'),
     concatCss = require('gulp-concat-css'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    shell = require('gulp-shell'),
-    runSequence = require('run-sequence');
+    shell = require('gulp-shell');
 
 gulp.task('js', function () {
   gulp.src([

@@ -22,7 +22,7 @@ var postArticleRendered = function () {
   (function showLineNum (angular) {
     angular.forEach(document.getElementsByTagName('pre'), function (pre) {
       var code = pre.children[0];
-      var line_num = code.innerHTML.split('\n').length;
+      var line_num = code.innerHTML.split('\n').length - 1;
       var line_num_ul = document.createElement('ul');
       line_num_ul.className = 'numbering';
       for (var i = 1; i <= line_num; i++) {
@@ -41,9 +41,11 @@ var postArticleRendered = function () {
 
 (function detectScroll () {
   window.onscroll = function (ev) {
-    if (window.scrollY >= 222)
-      document.getElementsByClassName('sidebar')[0].style.top = '20px';
-    else 
-      document.getElementsByClassName('sidebar')[0].style.top = 242 - window.scrollY + 'px';
+    if (document.getElementsByClassName('sidebar').length > 0) {
+      if (window.scrollY >= 222)
+        document.getElementsByClassName('sidebar')[0].style.top = '20px';
+      else
+        document.getElementsByClassName('sidebar')[0].style.top = 242 - window.scrollY + 'px';
+    }
   }; 
 }());

@@ -254,6 +254,10 @@ pre {
   overflow: auto;
 }
 
+pre code:text {
+  color: #000;
+}
+
 pre ul.numbering {
   position: absolute;
   top: 0;
