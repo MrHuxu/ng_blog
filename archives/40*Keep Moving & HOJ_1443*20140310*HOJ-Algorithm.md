@@ -22,59 +22,59 @@ Keep Moving，永不止步！
 
 话不多说，代码如下：  
 
-	#include <iostream>
-	#include <cstdio>
-	#include <string>
-	#include <cstring>
-	#include <map>
-	using namespace std;
-	
-	typedef struct Stack{
-    	int r[100];
-    	int c[100];
-    	int top;
-	}Stack;
+    #include <iostream>
+    #include <cstdio>
+    #include <string>
+    #include <cstring>
+    #include <map>
+    using namespace std;
+    
+    typedef struct Stack{
+        int r[100];
+        int c[100];
+        int top;
+    }Stack;
 
-	void pop(Stack &s){
-    	s.top--;
-	}
+    void pop(Stack &s){
+        s.top--;
+    }
 
-	void push(Stack &s, int row, int column){
-    	s.r[++s.top] = row;
-    	s.c[s.top] = column;
-	}
-	
-	int main(){
-    	Stack s;
-    	map<char, int> rows, columns;
-    	int n, row, column, result, err;
-    	char name, expression[100];
-    	cin >> n;
-    	while(n--){
-        	cin >> name >> row >> column;
-        	rows[name] = row;
-        	columns[name] = column;
-    	}
-    	while((scanf("%s", expression)) != EOF){
-        	err = result = 0;
-        	s.top = -1;
-        	for(int i = 0; i < strlen(expression); i++){
-            	if(expression[i] >= 'A' && expression[i] <= 'Z')
-                	push(s, rows[expression[i]], columns[expression[i]]);
-            	else if(expression[i] == ')'){
-                	if(s.c[s.top - 1] != s.r[s.top]){
-                   	 	err = 1;
-                    	break;
-                	}else{
-                    	result += s.r[s.top - 1] * s.c[s.top] * s.c[s.top - 1];
-                    	s.c[s.top - 1] = s.c[s.top];
-                    	pop(s);
-                	}
-            	}
-        	}
-        	if(err)
-            	cout << "error" << endl;
-        	else
-            	cout << result << endl;
-    	}
-	}
+    void push(Stack &s, int row, int column){
+        s.r[++s.top] = row;
+        s.c[s.top] = column;
+    }
+    
+    int main(){
+        Stack s;
+        map<char, int> rows, columns;
+        int n, row, column, result, err;
+        char name, expression[100];
+        cin >> n;
+        while(n--){
+            cin >> name >> row >> column;
+            rows[name] = row;
+            columns[name] = column;
+        }
+        while((scanf("%s", expression)) != EOF){
+            err = result = 0;
+            s.top = -1;
+            for(int i = 0; i < strlen(expression); i++){
+                if(expression[i] >= 'A' && expression[i] <= 'Z')
+                    push(s, rows[expression[i]], columns[expression[i]]);
+                else if(expression[i] == ')'){
+                    if(s.c[s.top - 1] != s.r[s.top]){
+                        err = 1;
+                        break;
+                    }else{
+                        result += s.r[s.top - 1] * s.c[s.top] * s.c[s.top - 1];
+                        s.c[s.top - 1] = s.c[s.top];
+                        pop(s);
+                    }
+                }
+            }
+            if(err)
+                cout << "error" << endl;
+            else
+                cout << result << endl;
+        }
+    }

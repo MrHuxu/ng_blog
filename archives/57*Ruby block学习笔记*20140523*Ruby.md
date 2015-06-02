@@ -6,34 +6,34 @@
 
 比如以下的代码：  
 
-	def say_hello
-		yield
-		yield
-		yield
-	end
-	
-	say_hello { puts 'hello world' }  # print "hello world" three tiems  
+    def say_hello
+      yield
+      yield
+      yield
+    end
+    
+    say_hello { puts 'hello world' }  # print "hello world" three tiems  
 	
 当然，在```yield```后面接变量的话，```block```也是可以接受带参数的代码块的。于是我把我的理解发了过去，结果群里面有个哥们儿提到了另一种用法，据他的说法，是```不带yield```的用法，代码如下：  
 
-	def add&block
+    def add&block
 	
 这个语法从来没见过啊有木有，果断Google之，大致的解释是，Ruby中的```&```符号，在修饰方法的参数时，表示方法中引用的block。然后又在StackOverflow上发现了一个[问答](http://stackoverflow.com/questions/814739/whats-this-block-in-ruby-and-how-does-it-get-passed-in-a-method-here)，其中的代码如下：  
 
-	def meth_captures(arg, &block)
-  		puts block.call(arg, 0) + block.call(arg.reverse, 1)
-	end
+    def meth_captures(arg, &block)
+      puts block.call(arg, 0) + block.call(arg.reverse, 1)
+    end
 
-	meth_captures('pony') do |word, num|
-  		puts "in callback! word = #{word.inspect}, num = #{num.inspect}"
-  		word + num.to_s
-	end  
+    meth_captures('pony') do |word, num|
+      puts "in callback! word = #{word.inspect}, num = #{num.inspect}"
+      word + num.to_s
+    end  
 	
 输出结果是：  
 
-	in callback! word = "pony", num = 0
-	in callback! word = "ynop", num = 1
-	pony0ynop1  
+    in callback! word = "pony", num = 0
+    in callback! word = "ynop", num = 1
+    pony0ynop1  
 	
 这样的程序真是把我的看醉了，下面的那个输出语句居然被执行了两次，而且那两个参数完全就不知道从哪里过来的，简直就像魔术一样有木有~  
 
@@ -59,19 +59,19 @@
 
 上面那个链接还给出了一个不使用```&```而使用```yield```的方法，代码如下：  
 
-	def meth_yields(arg)
-  	puts yield(arg, 0) + yield(arg.upcase, 1)
-	end
-	
-	meth_yields('frog') do |word, num|
-  	puts "in callback! word = #{word.inspect}, num = #{num.inspect}"
-  	word + num.to_s
-	end  
+    def meth_yields(arg)
+      puts yield(arg, 0) + yield(arg.upcase, 1)
+    end
+    
+    meth_yields('frog') do |word, num|
+      puts "in callback! word = #{word.inspect}, num = #{num.inspect}"
+      word + num.to_s
+    end  
 	
 输出内容是：  
 
-	in callback! word = "frog", num = 0
-	in callback! word = "FROG", num = 1
-	frog0FROG1  
+    in callback! word = "frog", num = 0
+    in callback! word = "FROG", num = 1
+    frog0FROG1  
 	
 这段代码的执行过程和上面那段类似，不过```block```不是通过作为参数被方法调用，而是通过```yield```关键字被调用的。

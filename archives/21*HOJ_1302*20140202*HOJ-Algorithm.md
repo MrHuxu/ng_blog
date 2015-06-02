@@ -8,28 +8,36 @@
 
 这道题很简单，就是判断一个数是不是可以拆散成阶乘的和，本来想把可能性都列出来打表的，结果发现还不如用贪心呢，需要注意的是，0的阶乘是1，一定要带上，我就是这样```WA```了好几次。。。  
 
-	#include <iostream>
-	using namespace std;
+    #include <iostream>
+    using namespace std;
 
-	int main(){
-  		int fact[12], tmp = 1, n;
-  		fact[0] = 1;
-  		for(int i = 1; i < 12; i++){
-    		tmp *= i;
-    		fact[i] = tmp;
-  		}
-  		while((cin >> n) && n >= 0){
-    		if(n == 0)
-      			cout << "NO" << endl;
-    		else{
-      			for(int i = 11; i >= 0; i--){
-        			if(n >= fact[i])
-          				n -= fact[i];
-      			}
-      			if(n == 0)
-        			cout << "YES" << endl;
-      			else
-        			cout << "NO" << endl;
-    		}
-  		}
-	}
+    typedef struct Team{
+        char name[100];
+        int detail[4][2], correct, penalty;
+    } Team;
+
+    int main(){
+        int n, winner = 0;
+        Team t[100];
+        cin >> n;
+        for(int i = 0; i < n; i++){
+            t[i].correct = 0;
+            t[i].penalty = 0;  //如果把这两个值在结构体内确定的话，clang++是warning，但在HOJ上无法编译
+            cin >> t[i].name >> t[i].detail[0][0] >> t[i].detail[0][1] >> t[i].detail[1][0] >> t[i].detail[1][1] >> t[i].detail[2][0] >> t[i].detail[2][1] >> t[i].detail[3][0] >> t[i].detail[3][1];
+            for(int j = 0; j < 4; j++){
+                if(t[i].detail[j][1] != 0){
+                    t[i].correct += 1;
+                    t[i].penalty = t[i].detail[j][0] > 1 ? t[i].penalty + t[i].detail[j][1] + (t[i].detail[j][0] - 1) * 20 : t[i].detail[j][1] + t[i].penalty;
+                }
+            }
+        }
+        for(int i = 0; i < n; i++){
+            if(t[i].correct > t[winner].correct)
+                winner = i;
+            else if(t[i].correct == t[winner].correct){
+                if(t[i].penalty < t[winner].penalty)
+                    winner = i;
+            }
+        }
+        cout << t[winner].name << ' ' << t[winner].correct << ' ' << t[winner].penalty << endl;
+    }

@@ -14,42 +14,42 @@
 
 然后仍然是一道水题，这题的题目真是不能更简单了，就不说什么了，直接放代码吧：  
 
-	//HOJ_1272
-	#include <iostream>
-	using namespace std;
+    //HOJ_1272
+    #include <iostream>
+    using namespace std;
 
-	void step(int data[], int length){
-  		int tmp[100];
-  		for(int i = 0; i < length; i++)
-    		tmp[i] = data[i] / 2;
-  		data[0] = (tmp[length - 1] + tmp[0]) % 2 == 0 ? (tmp[length - 1] + tmp[0]) : (tmp[length - 1] + tmp[0] + 1);
-  		for(int i = 1; i < length; i++)
-    		data[i] = (tmp[i - 1] + tmp[i]) % 2 == 0 ? (tmp[i - 1] + tmp[i]) : (tmp[i - 1] + tmp[i] + 1);
-	}
+    void step(int data[], int length){
+        int tmp[100];
+        for(int i = 0; i < length; i++)
+            tmp[i] = data[i] / 2;
+        data[0] = (tmp[length - 1] + tmp[0]) % 2 == 0 ? (tmp[length - 1] + tmp[0]) : (tmp[length - 1] + tmp[0] + 1);
+        for(int i = 1; i < length; i++)
+            data[i] = (tmp[i - 1] + tmp[i]) % 2 == 0 ? (tmp[i - 1] + tmp[i]) : (tmp[i - 1] + tmp[i] + 1);
+    }
 
-	int main(){
-  		int N, counts[100] = {0}, steps;
-  		bool unfinished;
-  		while(cin >> N){
-    		if(N == 0)
-      			break;
-    		else{
-      			steps = 0;
-      			unfinished = true;
-      			for(int i = 0; i < N; i++)
-        			cin >> counts[i];
-      			while(unfinished){
-        			unfinished = false;
-        			for(int i = 0; i < N - 1; i++){
-          				if(counts[i] != counts[i + 1]){
-            				unfinished = true;
-            				step(counts, N);
-            				steps += 1;
-            				break;
-          				}
-        			}
-      			}
-      			cout << steps << ' ' << counts[0] << endl;
-    		}
-  		}
-	}
+    int main(){
+        int N, counts[100] = {0}, steps;
+        bool unfinished;
+        while(cin >> N){
+            if(N == 0)
+                break;
+            else{
+                steps = 0;
+                unfinished = true;
+                for(int i = 0; i < N; i++)
+                    cin >> counts[i];
+                while(unfinished){
+                    unfinished = false;
+                    for(int i = 0; i < N - 1; i++){
+                        if(counts[i] != counts[i + 1]){
+                            unfinished = true;
+                            step(counts, N);
+                            steps += 1;
+                            break;
+                        }
+                    }
+                }
+                cout << steps << ' ' << counts[0] << endl;
+            }
+        }
+    }

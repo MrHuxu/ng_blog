@@ -6,21 +6,21 @@
 
 	代码如下：  
 	
-		#include <iostream>
-		using namespace std;
+        #include <iostream>
+        using namespace std;
 
-		int main(){
-  			int amount, n;
-  			cin >> amount;
-  			while(amount){
-    			cin >> n;
-    			if(n % 2 == 0)
-      				cout << n / 2 * (n / 2 - 1) << endl;
-    			else
-      				cout << n / 2 * (n / 2 - 1) / 2 + n / 2 * (n / 2 + 1) / 2 << endl;
-    			amount--;
-  			}
-		}
+        int main(){
+            int amount, n;
+            cin >> amount;
+            while(amount){
+                cin >> n;
+                if(n % 2 == 0)
+                    cout << n / 2 * (n / 2 - 1) << endl;
+                else
+                    cout << n / 2 * (n / 2 - 1) / 2 + n / 2 * (n / 2 + 1) / 2 << endl;
+                amount--;
+            }
+        }
 		
 - ```1247```: 我发现```ACM```很喜欢在质数啊、互质、因数啊这些概念上出题啊。。。  
 	这道题如果真的一个个去求约数然后求和，结果想都不用想肯定是超时，我感觉没有什么思路，点进```Discuss```，发现一个大牛给了一个方法，用```筛法```，直接打表给答案，```筛法```，感觉很高端的样子啊，立刻Google之，发现原来是一种求质数的方法，在百度百科上找到了解释：  
@@ -31,32 +31,34 @@
 	
 	代码如下：
 	
-		#include <iostream>
-		#include <iomanip>
-		using namespace std;
+        #include <iostream>
+        #include <iomanip>
+        using namespace std;
 
-		int main(){
-  			int num[60001], tmp;
-  			for(int i = 0; i < 60001; i++)
-    			num[i] = 0;
-  			for(int i = 1; i <= 60000; i++){
-    			for(int j = i * 2; j <= 60000; j += i)
-      				num[j] += i;
-  			}
-  			cout << "PERFECTION OUTPUT" << endl;
-  			while(cin >> tmp){
-    			if(tmp == 0){
-      				cout << "END OF OUTPUT" << endl;
-      				break;
-    			}else{
-      				cout << setw(5) << tmp << "  ";
-      				if(num[tmp] == tmp)
-        				cout << "PERFECT" << endl;
-      				else if(num[tmp] > tmp)
-        				cout << "ABUNDANT" << endl;
-      				else
-        				cout << "DEFICIENT" << endl;
-    			}
-  			}
-		}
+        int main(){
+            int num[60001], tmp;
+            for(int i = 0; i < 60001; i++)
+                num[i] = 0;
+            for(int i = 1; i <= 60000; i++){
+                for(int j = i * 2; j <= 60000; j += i)
+                    num[j] += i;
+            }
+            cout << "PERFECTION OUTPUT" << endl;
+            while(cin >> tmp){
+                if(tmp == 0){
+                    cout << "END OF OUTPUT" << endl;
+                    break;
+                }else{
+                    cout << setw(5) << tmp << "  ";
+                    if(num[tmp] == tmp)
+                        cout << "PERFECT" << endl;
+                    else if(num[tmp] > tmp)
+                        cout << "ABUNDANT" << endl;
+                    else
+                        cout << "DEFICIENT" << endl;
+                }
+            }
+        }
+
+
 

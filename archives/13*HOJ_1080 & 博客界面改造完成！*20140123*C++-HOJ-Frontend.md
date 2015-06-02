@@ -39,36 +39,36 @@
     using namespace std;
 
     void cal(char d[], int l){
-      if(l == 1){
-        cout << d[0] << endl;
-        return;
-      }else{
-        int sum = 0, tmp, length = 0;
-        char res[6];
-        for(int i = 0; i < l; i++)
-          sum += ((int)d[i]) - 48;
-          //cout << sum << endl;
-        tmp = sum;
-        while(tmp != 0){
-          length++;
-          tmp /= 10;
+        if(l == 1){
+            cout << d[0] << endl;
+            return;
+        }else{
+            int sum = 0, tmp, length = 0;
+            char res[6];
+            for(int i = 0; i < l; i++)
+                sum += ((int)d[i]) - 48;
+            //cout << sum << endl;
+            tmp = sum;
+            while(tmp != 0){
+                length++;
+                tmp /= 10;
+            }
+            for(int i = length - 1; i >= 0; i--){
+                tmp = sum;
+                for(int j = 0; j < i; j++)
+                    tmp /= 10;
+                res[i] = (char)(tmp % 10 + 48);
+            }
+            cal(res, length);
         }
-        for(int i = length - 1; i >= 0; i--){
-          tmp = sum;
-          for(int j = 0; j < i; j++)
-            tmp /= 10;
-          res[i] = (char)(tmp % 10 + 48);
-        }
-        cal(res, length);
-      }
     }
 
     int main(){
-      char data[50000];
-      while(cin >> data){
-        if(!strcmp(data, "0"))
-          break;
-        else
-          cal(data, strlen(data));
-      }
+        char data[50000];
+        while(cin >> data){
+            if(!strcmp(data, "0"))
+                break;
+            else
+                cal(data, strlen(data));
+        }
     }

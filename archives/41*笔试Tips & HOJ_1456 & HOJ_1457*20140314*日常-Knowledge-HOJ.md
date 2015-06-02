@@ -20,20 +20,20 @@
 
 5、C/C++的按位运算符是```&```/```|```/```^(异或)```，使用方法如下：
 
-	int num1 = 8, num2 = 1;
-	int num3 = num1 | num2;
-	cout << num3 << endl;     // => 9，必须把这个结果赋给一个变量，否则编译器会有warning并且无法输出正确结果
+    int num1 = 8, num2 = 1;
+    int num3 = num1 | num2;
+    cout << num3 << endl;     // => 9，必须把这个结果赋给一个变量，否则编译器会有warning并且无法输出正确结果
 
 6、```.```运算符是不能被重载的。  
 
 7、如果一个变量一开始就声明成指针型，那么它是可以使用```自增```运算符的，而如果一开始被声明成数组，那么就不能使用自增运算符，虽然这两者内在是一种东西。测试代码：
 
-	int b[100];
-	int *pb = b;
-	*(pb + 1) = 1;
-	*(b + 1) = 1;
-	*(++pb) = 1;     // => 上面三个结果都是b[1] = 1
-	*(++b) = 1;     // 无法正确赋值，而且编译器汇报错，b++也是一样  
+    int b[100];
+    int *pb = b;
+    *(pb + 1) = 1;
+    *(b + 1) = 1;
+    *(++pb) = 1;     // => 上面三个结果都是b[1] = 1
+    *(++b) = 1;     // 无法正确赋值，而且编译器汇报错，b++也是一样  
 		
 #####~~~~~~~~~~~~我是萌萌的昏割线~~~~~~~~~~~~~  
 
@@ -43,91 +43,91 @@
 
 仔细看了一下，感觉代码里面没有什么卡循环的啊，算了，不纠结了，放代码吧：  
 
-	#include <iostream>
-	#include <string>
-	#include <memory>
-	using namespace std;
-	
-	int main(){
-    	int t, elem_num, tmp, input_num, front, rear, location, visit, k = 0;
-    	int elem[1000000], queue[1000000];
-    	string input_str;
-    	while(cin >> t && t != 0){
-        	memset(elem, 0, sizeof(elem));
-        	memset(queue, -1, sizeof(queue));
-        	for(int i = 1; i <= t; i++){
-            	cin >> elem_num;
-            	for(int j = 1; j <= elem_num; j++){
-                	cin >> tmp;
-                	elem[tmp] = i;
-            	}
-        	}
-        	front = rear = 0;
-        	cout << "Scenario #" << ++k << endl;
-        	while(cin >> input_str && input_str != "STOP"){
-            	if(input_str == "ENQUEUE"){
-                	cin >> input_num;
-                	visit = 0;
-                	for(location = rear; location >= front; location--){
-                    	if(elem[queue[location]] == elem[input_num]){
-                       	 	visit = 1;
-                        	break;
-                    	}
-                	}
-                	if(visit){
-                    	for(int i = rear; i > location; i--)
-                        	queue[i] = queue[i - 1];
-                    	queue[location + 1] = input_num;
-                    	rear++;
-                	}else{
-                    	queue[rear] = input_num;
-                    	rear++;
-                	}
-            	}else if(input_str == "DEQUEUE"){
-                	cout << queue[front++] << endl;
-            	}
-        	}
-        	cout << endl;
-    	}
-	}
+    #include <iostream>
+    #include <string>
+    #include <memory>
+    using namespace std;
+    
+    int main(){
+        int t, elem_num, tmp, input_num, front, rear, location, visit, k = 0;
+        int elem[1000000], queue[1000000];
+        string input_str;
+        while(cin >> t && t != 0){
+            memset(elem, 0, sizeof(elem));
+            memset(queue, -1, sizeof(queue));
+            for(int i = 1; i <= t; i++){
+                cin >> elem_num;
+                for(int j = 1; j <= elem_num; j++){
+                    cin >> tmp;
+                    elem[tmp] = i;
+                }
+            }
+            front = rear = 0;
+            cout << "Scenario #" << ++k << endl;
+            while(cin >> input_str && input_str != "STOP"){
+                if(input_str == "ENQUEUE"){
+                    cin >> input_num;
+                    visit = 0;
+                    for(location = rear; location >= front; location--){
+                        if(elem[queue[location]] == elem[input_num]){
+                            visit = 1;
+                            break;
+                        }
+                    }
+                    if(visit){
+                        for(int i = rear; i > location; i--)
+                            queue[i] = queue[i - 1];
+                        queue[location + 1] = input_num;
+                        rear++;
+                    }else{
+                        queue[rear] = input_num;
+                        rear++;
+                    }
+                }else if(input_str == "DEQUEUE"){
+                    cout << queue[front++] << endl;
+                }
+            }
+            cout << endl;
+        }
+    }
 
 
 ```1457```：这道题很简单，就是看矩阵里行和列有没有和为奇数的，如果没有，那么肯定就是```OK```，如果各有一行一列不是，那么改变```交叉点```的值就可以了，如果一个有一个没有，或者数量大于1，那就肯定没救，输出```Corrupt```就行了。  
 
 代码如下：
 
-	#include <iostream>
-	#include <memory.h>
-	using namespace std;
-	
-	int main(){
-    	int n, data[110][110], row[110], col[110], odd_row, odd_col, tmp1, tmp2;
-    	while(cin >> n && n != 0){
-        	memset(row, 0, sizeof(row));
-        	memset(col, 0, sizeof(col));
-        	for(int i = 0; i < n; i++){
-            	for(int j = 0; j < n; j++){
-                	cin >> data[i][j];
-                	row[i] += data[i][j];
-                	col[j] += data[i][j];
-            	}
-        	}
-        	tmp1 = tmp2 = 0;
-        	for(int i = 0; i < n; i++){
-            	if(row[i] % 2 != 0){
-                	tmp1++;
-                	odd_row = i;
-            	}
-            	if(col[i] % 2 != 0){
-                	tmp2++;
-                	odd_col = i;
-            	}
-        	}
-        	if(!tmp1 && !tmp2)
-            	cout << "OK" << endl;
-        	else if(tmp1 == 1 && tmp2 == 1)
-            	cout << "Change bit (" << odd_row + 1 << ',' << odd_col + 1 << ')' << endl;
-        	else
-            	cout << "Corrupt" << endl;
-    	}
-	}
+    #include <iostream>
+    #include <memory.h>
+    using namespace std;
+    
+    int main(){
+        int n, data[110][110], row[110], col[110], odd_row, odd_col, tmp1, tmp2;
+        while(cin >> n && n != 0){
+            memset(row, 0, sizeof(row));
+            memset(col, 0, sizeof(col));
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++){
+                    cin >> data[i][j];
+                    row[i] += data[i][j];
+                    col[j] += data[i][j];
+                }
+            }
+            tmp1 = tmp2 = 0;
+            for(int i = 0; i < n; i++){
+                if(row[i] % 2 != 0){
+                    tmp1++;
+                    odd_row = i;
+                }
+                if(col[i] % 2 != 0){
+                    tmp2++;
+                    odd_col = i;
+                }
+            }
+            if(!tmp1 && !tmp2)
+                cout << "OK" << endl;
+            else if(tmp1 == 1 && tmp2 == 1)
+                cout << "Change bit (" << odd_row + 1 << ',' << odd_col + 1 << ')' << endl;
+            else
+                cout << "Corrupt" << endl;
+        }
+    }

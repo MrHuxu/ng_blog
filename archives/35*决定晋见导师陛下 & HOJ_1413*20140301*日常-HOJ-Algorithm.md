@@ -34,59 +34,59 @@
 
 话不多说，代码如下：  
 
-	#include <cstdio>
-	#include <iostream>
-	#include <cstring>
-	#include <string>
-	using namespace std;
-	char input[27];
-	bool valid;
-	int length, result;
-	int num_of_length[26] = {26, 325, 2600, 14950, 65780, 230230, 657800, 1562275, 3124550, 5311735, 7726160, 9657700, 10400600, 9657700, 7726160, 5311735, 3124550, 1562275, 657800, 230230, 65780, 14950, 2600, 325, 26, 1};
+    #include <cstdio>
+    #include <iostream>
+    #include <cstring>
+    #include <string>
+    using namespace std;
+    char input[27];
+    bool valid;
+    int length, result;
+    int num_of_length[26] = {26, 325, 2600, 14950, 65780, 230230, 657800, 1562275, 3124550, 5311735, 7726160, 9657700, 10400600, 9657700, 7726160, 5311735, 3124550, 1562275, 657800, 230230, 65780, 14950, 2600, 325, 26, 1};
 
-	void calc(int d1, int d2, int index, char arr[], bool over){
-    	if(d2 == 26){
-        	for(int i = d1 + 1; i < 26; i++){
-            	result++;
-            	if(arr[index] == (char)(i + 97) && over)
-                	break;
-        	}
-        	return;
-    	}else{
-        	for(int i = d1 + 1; i < d2; i++){
-            	if(arr[index] == (char)(i + 97) && over){
-                	calc(i, d2 + 1, index + 1, arr, true);
-                	break;
-            	}else
-                	calc(i, d2 + 1, index + 1, arr, false);
-        	}
-        	return;
-    	}
-	}
+    void calc(int d1, int d2, int index, char arr[], bool over){
+        if(d2 == 26){
+            for(int i = d1 + 1; i < 26; i++){
+                result++;
+                if(arr[index] == (char)(i + 97) && over)
+                    break;
+            }
+            return;
+        }else{
+            for(int i = d1 + 1; i < d2; i++){
+                if(arr[index] == (char)(i + 97) && over){
+                    calc(i, d2 + 1, index + 1, arr, true);
+                    break;
+                }else
+                    calc(i, d2 + 1, index + 1, arr, false);
+            }
+            return;
+        }
+    }
 
-	int main(){
-    	while(scanf("%s", input) != EOF){
-        	length = strlen(input);
-        	if(length == 1)
-            	cout << (int)input[0] - 96 << endl;
-        	else{
-            	valid = true;
-            	for(int i = 1; i < strlen(input); i++){
-                	if(input[i] <= input[i - 1]){
-                   	 	valid = false;
-                   	 	break;
-                	}
-            	}
+    int main(){
+        while(scanf("%s", input) != EOF){
+            length = strlen(input);
+            if(length == 1)
+                cout << (int)input[0] - 96 << endl;
+            else{
+                valid = true;
+                for(int i = 1; i < strlen(input); i++){
+                    if(input[i] <= input[i - 1]){
+                        valid = false;
+                        break;
+                    }
+                }
 
-            	if(!valid)
-                	cout << 0 << endl;
-            	else{
-                	result = 0;
-                	for(int i = 0; i < length - 1; i++)
-                   	 	result += num_of_length[i];
-                	calc(-1, 27 - length, 0, input, true);
-                	cout << result << endl;
-            	}
-        	}
-    	}
-	}
+                if(!valid)
+                    cout << 0 << endl;
+                else{
+                    result = 0;
+                    for(int i = 0; i < length - 1; i++)
+                        result += num_of_length[i];
+                    calc(-1, 27 - length, 0, input, true);
+                    cout << result << endl;
+                }
+            }
+        }
+    }

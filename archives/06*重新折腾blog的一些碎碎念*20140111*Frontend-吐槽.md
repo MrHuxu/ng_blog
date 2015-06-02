@@ -14,19 +14,19 @@
 - 目前遇到了一个蛋疼的问题，就是在```jQuery```中，好像选取元素时使用的数字用变量来代替是无效的。  
 比如：  
 		
-		var a = 0;
-		while(a < 5){
-		  console.log(a);
-		  $('.arc_link li:eq(a)').fadeIn();
-		}
+        var a = 0;
+        while(a < 5){
+            console.log(a);
+            $('.arc_link li:eq(a)').fadeIn();
+        }
 
 	这样的代码会在终端打印出：
 		
-		0
-		1
-		2
-		3
-		4
+        0
+        1
+        2
+        3
+        4
 
 	但是元素却没有任何效果。下次找个JS大牛问问。  
 
