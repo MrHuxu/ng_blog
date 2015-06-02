@@ -10,7 +10,7 @@
 
 以前我总是很蛋疼```CSS```里```div```添加滚动条的问题，比如以前我用```highlightjs```处理博文中的代码段，如果长度过长，代码会直接跑到```div```的范围外，很难看。google了一下，原来解决方法如此简单，在父元素上加上如下的语句：  
 
-	overflow: auto;
+    overflow: auto;
 	
 这样，不论在哪个方向出现子元素内容过宽或过高，父元素都会自动出现滚动条，嗯，妈妈再也不用担心我的内容越界了~~  
 
@@ -32,43 +32,43 @@
 
 代码如下：  
 
-	//HOJ 1080
-	#include <iostream>
-	#include <cstring>
-	#include <string>
-	using namespace std;
+    //HOJ 1080
+    #include <iostream>
+    #include <cstring>
+    #include <string>
+    using namespace std;
 
-	void cal(char d[], int l){
-  		if(l == 1){
-    		cout << d[0] << endl;
-    		return;
-  		}else{
-    		int sum = 0, tmp, length = 0;
-    		char res[6];
-    		for(int i = 0; i < l; i++)
-      			sum += ((int)d[i]) - 48;
- 			//cout << sum << endl;
-    		tmp = sum;
-    		while(tmp != 0){
-      			length++;
-      			tmp /= 10;
-    		}
-    		for(int i = length - 1; i >= 0; i--){
-      			tmp = sum;
-      			for(int j = 0; j < i; j++)
-        			tmp /= 10;
-      			res[i] = (char)(tmp % 10 + 48);
-    		}
-    		cal(res, length);
-  		}
-	}
+    void cal(char d[], int l){
+      if(l == 1){
+        cout << d[0] << endl;
+        return;
+      }else{
+        int sum = 0, tmp, length = 0;
+        char res[6];
+        for(int i = 0; i < l; i++)
+          sum += ((int)d[i]) - 48;
+          //cout << sum << endl;
+        tmp = sum;
+        while(tmp != 0){
+          length++;
+          tmp /= 10;
+        }
+        for(int i = length - 1; i >= 0; i--){
+          tmp = sum;
+          for(int j = 0; j < i; j++)
+            tmp /= 10;
+          res[i] = (char)(tmp % 10 + 48);
+        }
+        cal(res, length);
+      }
+    }
 
-	int main(){
-  		char data[50000];
-  		while(cin >> data){
-    		if(!strcmp(data, "0"))
-      			break;
-    		else
-      			cal(data, strlen(data));
-  		}
-	}
+    int main(){
+      char data[50000];
+      while(cin >> data){
+        if(!strcmp(data, "0"))
+          break;
+        else
+          cal(data, strlen(data));
+      }
+    }

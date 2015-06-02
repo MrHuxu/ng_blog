@@ -12,28 +12,27 @@ defaults write com.apple.finder AppleShowAllFiles -bool false```
 
 2. 卸载MacPorts：  
 
-		sudo port -fp uninstall installed
-		sudo rm -rf \
-    		/opt/local \
-    		/Applications/DarwinPorts \
-    		/Applications/MacPorts \
-    		/Library/LaunchDaemons/org.macports.* \
-    		/Library/Receipts/DarwinPorts*.pkg \
-    		/Library/Receipts/MacPorts*.pkg \
-    		/Library/StartupItems/DarwinPortsStartup \
-    		/Library/Tcl/darwinports1.0 \
-    		/Library/Tcl/macports1.0 \
-    		~/.macports
+        sudo port -fp uninstall installed
+        sudo rm -rf \
+            /opt/local \
+            /Applications/DarwinPorts \
+            /Applications/MacPorts \
+            /Library/LaunchDaemons/org.macports.* \
+            /Library/Receipts/DarwinPorts*.pkg \
+            /Library/Receipts/MacPorts*.pkg \
+            /Library/StartupItems/DarwinPortsStartup \
+            /Library/Tcl/darwinports1.0 \
+            /Library/Tcl/macports1.0 \
+            ~/.macports
 
 3. - 安装homebrew：  
-```
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-```  
+
+        ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
    - 通过homebrew安装软件，比如ctags：  
-```
-homebrew search ctag
-homebrew install ctags
-```
+   
+        homebrew search ctag
+        homebrew install ctags
 
 4. 然后进入Game/Mac app目录，安装Command Line Tools，OSX-GCC等工具
 
