@@ -275,6 +275,10 @@ pre ul.numbering {
   color: #AAA;
 }
 
+code span {
+  white-space: nowrap;
+}
+
 ul.numbering li {
   line-height: 20px;
   text-align: center;

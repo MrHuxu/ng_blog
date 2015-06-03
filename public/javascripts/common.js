@@ -21,16 +21,24 @@ var postArticleRendered = function () {
 
   (function showLineNum (angular) {
     angular.forEach(document.getElementsByTagName('pre'), function (pre) {
-      var code = pre.children[0];
-      var line_num = code.innerHTML.split('\n').length - 1;
-      var line_num_ul = document.createElement('ul');
-      line_num_ul.className = 'numbering';
-      for (var i = 1; i <= line_num; i++) {
-        var line_num_li = document.createElement('li');
-        line_num_li.innerText = i;
-        line_num_ul.appendChild(line_num_li);
+      var $code = pre.children[0];
+      var $lineNum = $code.innerHTML.split('\n').length - 1;
+      var $lineNumUl = document.createElement('ul');
+      $lineNumUl.className = 'numbering';
+      for (var i = 1; i <= $lineNum; i++) {
+        var $lineNumLi = document.createElement('li');
+        $lineNumLi.innerText = i;
+        $lineNumUl.appendChild($lineNumLi);
       }
-      pre.appendChild(line_num_ul);
+      var $htmlStr = $code.innerHTML;
+      var $endLineArr = $htmlStr.match(/\<\/span\>[\s*\S*\n+\s*\S*]+?\<span/g)
+      angular.forEach($endLineArr, function (eleTxt) {
+        var $tmp_str = '</span><span class="hljs-end">' + eleTxt.slice(7, eleTxt.length - 5) + '</span><span';
+        $tmp_str = $tmp_str.replace(/\n/g, '</span><br /><span class="hljs-end">');
+        $htmlStr = $htmlStr.replace(eleTxt, $tmp_str);
+      });
+      $code.innerHTML = $htmlStr;
+      pre.appendChild($lineNumUl);
     })
   }(angular));
 
