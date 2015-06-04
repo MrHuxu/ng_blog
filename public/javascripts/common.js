@@ -37,6 +37,7 @@ var postArticleRendered = function () {
         $tmp_str = $tmp_str.replace(/\n/g, '</span><br /><span class="hljs-end">');
         $htmlStr = $htmlStr.replace(eleTxt, $tmp_str);
       });
+      $htmlStr = $htmlStr.replace(/end\"\> *\S/g, 'end">&nbsp;&nbsp;<');
       $code.innerHTML = $htmlStr;
       pre.appendChild($lineNumUl);
     })
