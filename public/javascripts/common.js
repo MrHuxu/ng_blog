@@ -37,7 +37,9 @@ var postArticleRendered = function () {
         $tmp_str = $tmp_str.replace(/\n/g, '</span><br /><span class="hljs-end">');
         $htmlStr = $htmlStr.replace(eleTxt, $tmp_str);
       });
-      $htmlStr = $htmlStr.replace(/end\"\> *\S/g, 'end">&nbsp;&nbsp;<');
+      angular.forEach($htmlStr.match(/end\"\> *\S/g), function (s) {
+        $htmlStr = $htmlStr.replace(s, s.replace(/ /g, '&nbsp;'));
+      })
       $code.innerHTML = $htmlStr;
       pre.appendChild($lineNumUl);
     })
