@@ -30,17 +30,6 @@ var postArticleRendered = function () {
         $lineNumLi.innerText = i;
         $lineNumUl.appendChild($lineNumLi);
       }
-      var $htmlStr = $code.innerHTML;
-      var $endLineArr = $htmlStr.match(/\<\/span\>[\s*\S*\n+\s*\S*]+?\<span/g)
-      angular.forEach($endLineArr, function (eleTxt) {
-        var $tmp_str = '</span><span class="hljs-end">' + eleTxt.slice(7, eleTxt.length - 5) + '</span><span';
-        $tmp_str = $tmp_str.replace(/\n/g, '</span><br /><span class="hljs-end">');
-        $htmlStr = $htmlStr.replace(eleTxt, $tmp_str);
-      });
-      angular.forEach($htmlStr.match(/end\"\> *\S/g), function (s) {
-        $htmlStr = $htmlStr.replace(s, s.replace(/ /g, '&nbsp;'));
-      })
-      $code.innerHTML = $htmlStr;
       pre.appendChild($lineNumUl);
     })
   }(angular));
