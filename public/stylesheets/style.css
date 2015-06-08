@@ -332,6 +332,10 @@ blockquote {
   text-align: center;
 }
 
+.pagination-block {
+  padding: 0 0 0 0;
+}
+
 .page-btn {
   display: inline;
   height: 37px;
