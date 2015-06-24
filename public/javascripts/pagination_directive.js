@@ -18,7 +18,7 @@ blogModule.directive('pagination', function(){
         $scope.pages = [];
         $scope.pages.push(0);
         for (var i = 1; i < $scope.pageCount; i++) {
-          if (i >= page - 2 && i <= page + 2) {
+          if (i >= page - 1 && i <= page + 1) {
             if (i !== $scope.pages[$scope.pages.length - 1] + 1)
               $scope.pages.push('...');
             $scope.pages.push(i);
