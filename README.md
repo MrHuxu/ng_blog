@@ -29,9 +29,9 @@ In a word, coding with Angular is a fanty experience, and I fell in love with op
 
 ## Todo
 
-1. Make the page more beautiful
-2. Optimize the animation
-3. Use drop-and-refresh instead of pagination
+- [ ] Make the page more beautiful
+- [ ] Optimize the animation
+- [ ] Use drop-and-refresh instead of pagination
 
 
 
